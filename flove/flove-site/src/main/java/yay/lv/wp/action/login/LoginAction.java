@@ -87,7 +87,7 @@ public class LoginAction {
 
 	/**
 	 * 修改密码
-	 * 
+	 *
 	 * @return
 	 */
 	@RequestMapping("/retrieve.html")
@@ -106,7 +106,9 @@ public class LoginAction {
 	public Map<String, Object> sign(@RequestBody final UserInfo userInfo,
 			final HttpServletRequest request, final HttpServletResponse response) {
 		final Map<String, Object> map = new HashMap<String, Object>();
-
+		final HttpSession session = request.getSession();
+		session.setAttribute(Constants.SESSION_USER, userInfo);
+		map.put("success", true);
 		return map;
 	}
 }
