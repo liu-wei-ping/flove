@@ -62,7 +62,7 @@
 </body>
 <script type="text/javascript">
 	var login_url = "sign.shtml";
-	var return_url = "../main/index.html"
+	var return_url = "../core/index.html"
 	function getPicCode() {
 		$("#code-img").attr("src", "code.shtml?rnd=" + Math.random());
 	}
