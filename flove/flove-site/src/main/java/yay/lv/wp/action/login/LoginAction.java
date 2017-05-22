@@ -19,7 +19,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import yay.lv.wp.biz.utils.Constants;
 import yay.lv.wp.biz.utils.IdCodeUtil;
-import yay.lv.wp.bo.userinfo.UserInfo;
+import yay.lv.wp.bo.userinfo.FloveUser;
 
 /**
  * @author mr.lwp
@@ -103,10 +103,11 @@ public class LoginAction {
 	 */
 	@ResponseBody
 	@RequestMapping(value = "/sign.shtml", method = RequestMethod.POST)
-	public Map<String, Object> sign(@RequestBody final UserInfo userInfo,
+	public Map<String, Object> sign(@RequestBody final FloveUser userInfo,
 			final HttpServletRequest request, final HttpServletResponse response) {
 		final Map<String, Object> map = new HashMap<String, Object>();
 		final HttpSession session = request.getSession();
+		userInfo.setUid(1001);
 		session.setAttribute(Constants.SESSION_USER, userInfo);
 		map.put("success", true);
 		return map;

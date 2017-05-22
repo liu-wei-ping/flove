@@ -18,7 +18,7 @@
 		http://www.springframework.org/schema/context 
 		http://www.springframework.org/schema/context/spring-context-4.1.xsd">
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="com.socool.site.dao" />
+		<property name="basePackage" value="yay.lv.wp.dao" />
 		<property name="annotationClass" value="org.springframework.stereotype.Repository" />
 		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
 	</bean>

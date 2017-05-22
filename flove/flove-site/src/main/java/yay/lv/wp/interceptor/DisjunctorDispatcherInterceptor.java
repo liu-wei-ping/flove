@@ -13,7 +13,7 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import yay.lv.wp.biz.utils.Constants;
-import yay.lv.wp.bo.userinfo.UserInfo;
+import yay.lv.wp.bo.userinfo.FloveUser;
 
 /**
  * @author 刘伟平<liuweiping@ wcp.sina.com>
@@ -49,8 +49,8 @@ public class DisjunctorDispatcherInterceptor extends HandlerInterceptorAdapter {
 			response.sendRedirect(contextPath + Constants.LOGIN_URL);
 			return false;
 		} else {
-			if (obj instanceof UserInfo) {
-				final UserInfo loginUser = (UserInfo) obj;
+			if (obj instanceof FloveUser) {
+				final FloveUser loginUser = (FloveUser) obj;
 				if (loginUser != null
 						&& !StringUtils.isEmpty(loginUser.getUsername())) {
 					// session.setAttribute(Constants.AJAX_REQ, true);

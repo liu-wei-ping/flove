@@ -1,15 +1,16 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>yay.lv.wp</groupId>
-  <artifactId>flove</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <packaging>pom</packaging>
-  <modules>
-  	<module>flove-site</module>
-  	<module>flove-war</module>
-  </modules>
-  
-  	<properties>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>yay.lv.wp</groupId>
+	<artifactId>flove</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<modules>
+		<module>flove-site</module>
+		<module>flove-war</module>
+	</modules>
+
+	<properties>
 		<spring.version>4.1.7.RELEASE</spring.version>
 		<mysql.version>5.1.35</mysql.version>
 		<mybatis.version>3.2.8</mybatis.version>
@@ -20,10 +21,10 @@
 		<maven.compiler.source>1.7</maven.compiler.source>
 		<maven.compiler.target>1.7</maven.compiler.target>
 		<maven.compiler.compilerVersion>1.7</maven.compiler.compilerVersion>
-		<!--默认服务器  -->
+		<!--默认服务器 -->
 		<warPackageName>socool</warPackageName>
-        <tomcat.deploy.server>devServer</tomcat.deploy.server>
-        <tomcat.deploy.serverUrl>http://localhost:8080/manager/text</tomcat.deploy.serverUrl>
+		<tomcat.deploy.server>devServer</tomcat.deploy.server>
+		<tomcat.deploy.serverUrl>http://localhost:8080/manager/text</tomcat.deploy.serverUrl>
 	</properties>
 	<dependencies>
 		<!-- mysql驱动包 -->
@@ -65,7 +66,12 @@
 			<artifactId>druid</artifactId>
 			<version>${alibabaPool.version}</version>
 		</dependency>
-
+		<dependency>
+			<groupId>javax.websocket</groupId>
+			<artifactId>javax.websocket-api</artifactId>
+			<version>1.1</version>
+			<scope>provided</scope>
+		</dependency>
 
 		<!--spring框架 -->
 		<dependency>
@@ -185,45 +191,28 @@
 		</dependency>
 
 		<!-- redis -->
-<!-- 		<dependency>
-			<groupId>org.springframework.data</groupId>
-			<artifactId>spring-data-redis</artifactId>
-			<version>1.6.0.RELEASE</version>
-		</dependency>
-		<dependency>
-			<groupId>redis.clients</groupId>
-			<artifactId>jedis</artifactId>
-			<version>2.8.0</version>
-		</dependency> -->
-		 <!-- 爬虫Start -->
-<!-- 		<dependency>
-            <groupId>edu.uci.ics</groupId>
-            <artifactId>crawler4j</artifactId>
-            <version>4.2</version>
-        </dependency>
-        <dependency>
-            <groupId>org.jsoup</groupId>
-            <artifactId>jsoup</artifactId>
-            <version>1.8.3</version>
-        </dependency>
-        <dependency>
-            <groupId>net.sourceforge.javacsv</groupId>
-            <artifactId>javacsv</artifactId>
-            <version>2.0</version>
-        </dependency> -->
-       <!-- 爬虫end -->
+		<!-- <dependency> <groupId>org.springframework.data</groupId> <artifactId>spring-data-redis</artifactId> 
+			<version>1.6.0.RELEASE</version> </dependency> <dependency> <groupId>redis.clients</groupId> 
+			<artifactId>jedis</artifactId> <version>2.8.0</version> </dependency> -->
+		<!-- 爬虫Start -->
+		<!-- <dependency> <groupId>edu.uci.ics</groupId> <artifactId>crawler4j</artifactId> 
+			<version>4.2</version> </dependency> <dependency> <groupId>org.jsoup</groupId> 
+			<artifactId>jsoup</artifactId> <version>1.8.3</version> </dependency> <dependency> 
+			<groupId>net.sourceforge.javacsv</groupId> <artifactId>javacsv</artifactId> 
+			<version>2.0</version> </dependency> -->
+		<!-- 爬虫end -->
 	</dependencies>
-	
-	  <profiles>
-	  	<!-- 生产服务器 -->
-        <profile>
-            <id>prd</id>
-            <properties>
-                <tomcat.deploy.server>prdServer</tomcat.deploy.server>
-                <tomcat.deploy.serverUrl>http://192.168.200.156/manager/text</tomcat.deploy.serverUrl>
-            </properties>
-        </profile>
-      </profiles>
+
+	<profiles>
+		<!-- 生产服务器 -->
+		<profile>
+			<id>prd</id>
+			<properties>
+				<tomcat.deploy.server>prdServer</tomcat.deploy.server>
+				<tomcat.deploy.serverUrl>http://192.168.200.156/manager/text</tomcat.deploy.serverUrl>
+			</properties>
+		</profile>
+	</profiles>
 	<build>
 		<pluginManagement>
 			<plugins>
@@ -239,16 +228,10 @@
 						<contextReloadable>true</contextReloadable>
 					</configuration>
 				</plugin>
-<!-- 				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-war-plugin</artifactId>
-					<version>2.2</version>
-					<configuration>
-						<webXml>${basedir}/src/main/webapp/WEB-INF/web.xml</webXml>
-						<webappDirectory>${basedir}/src/main/webapp</webappDirectory>
-						<warSourceDirectory>${basedir}/src/main/webapp</warSourceDirectory>
-					</configuration>
-				</plugin> -->
+				<!-- <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-war-plugin</artifactId> 
+					<version>2.2</version> <configuration> <webXml>${basedir}/src/main/webapp/WEB-INF/web.xml</webXml> 
+					<webappDirectory>${basedir}/src/main/webapp</webappDirectory> <warSourceDirectory>${basedir}/src/main/webapp</warSourceDirectory> 
+					</configuration> </plugin> -->
 			</plugins>
 		</pluginManagement>
 	</build>

@@ -29,7 +29,7 @@
 			<div>
 				<input type="text" class="login-input" id="username"
 					oninput="errorFun('',false)" name="username" placeholder="用户名"
-					value="王大雷" required />
+					value="Planning" required />
 			</div>
 			<div>
 				<input type="password" class="login-input" id="password"
@@ -88,7 +88,7 @@ function login() {
 		var fields = $('#login-form').serializeArray();
 		$.each(fields, function(i, field) {
 			var key = field['name'];
-			console.log(field);
+		//	console.log(field);
 /* 			var value = key != "password" ? $.trim(field.value) : RSAUtils
 					.encryptedString(publicKey, $.trim(field.value));
 			console.log(key + "=" + value); */
@@ -111,9 +111,9 @@ function login() {
 			success : function(data) {
 				if (data.success) {
 					failCount=true;
-					loginSuccessCallback(3,return_url);
+					loginSuccessCallback(1,return_url);
 				} else {
-					loginFailCallback(data.msg,10);
+					loginFailCallback(data.msg,2);
 				}
 			},
 			error : function(data) {
