@@ -44,6 +44,7 @@ public class CoreAction {
 		modelMap.put("list", list);
 		modelMap.put("count", list.size());
 		model.addAllObjects(modelMap);
+		// model.setViewName("temp");
 		model.setViewName("time_index");
 		return model;
 	}
